@@ -45,5 +45,3 @@ methods: {
    }
 }
 };
-
-add add
