@@ -18,31 +18,31 @@ export default {
        };
    },
 
-   methods: {
-      add(newAssignmentName) {
-          if (this.currentTag) { // Проверяем, выбран ли какой-то тег
-              const newAssignment = {
-                  name: newAssignmentName,
-                  complete: false,
-                  tag: this.currentTag, // Привязываем к текущему тегу
-                  id: this.assignments.length > 0
-                      ? Math.max(...this.assignments
-                          .filter(a => a.tag === this.currentTag) // Фильтруем только по текущему тегу
-                          .map(a => a.id)) + 1
-                      : 1
-              };
-              this.assignments.push(newAssignment);
-          }
-      }
+//    methods: {
+//       add(newAssignmentName) {
+//           if (this.currentTag) { // Проверяем, выбран ли какой-то тег
+//               const newAssignment = {
+//                   name: newAssignmentName,
+//                   complete: false,
+//                   tag: this.currentTag, // Привязываем к текущему тегу
+//                   id: this.assignments.length > 0
+//                       ? Math.max(...this.assignments
+//                           .filter(a => a.tag === this.currentTag) // Фильтруем только по текущему тегу
+//                           .map(a => a.id)) + 1 
+//                       : 1
+//               };
+//               this.assignments.push(newAssignment);
+//           }
+//       }
+
+methods: {
+
+   add() {
+     if (this.newAssignment !== '' || this.currentTag ){
+       this.$emit('add', this.newAssignment),
+       this.newAssignment = ''
+     }
+   }
+}
 };
 
-// methods: {
-
-//    add() {
-//      if (this.newAssignment !== '' || this.currentTag ){
-//        this.$emit('add', this.newAssignment),
-      
-//        this.newAssignment = ''
-//      }
-//    }
-// }
