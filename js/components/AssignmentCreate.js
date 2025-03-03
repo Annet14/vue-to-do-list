@@ -45,5 +45,3 @@ methods: {
    }
 }
 };
-
-{etwas neu}
